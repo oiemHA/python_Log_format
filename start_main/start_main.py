@@ -44,7 +44,7 @@ while True:
     script_name = options[choice]
     try:
         subprocess.run(["python", script_name])
-    except FileNotFoundError:
-        print("脚本文件不存在。")
-    except subprocess.SubprocessError:
-        print("执行脚本文件时出现错误。")
+    except FileNotFoundError as e:
+        print("脚本文件不存在:{}".format(e))
+    except subprocess.SubprocessError as e:
+        print("执行脚本文件时出现错误:{}".format(e))
